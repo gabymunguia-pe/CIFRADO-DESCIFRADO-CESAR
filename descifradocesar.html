@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        let texto_cifrado=prompt("Ingresa un texto cifrado");
+        let key=parseInt(prompt("Ingresa la llave"));
+        let textodescifrado = [];
+
+        texto_cifrado=texto_cifrado.split(""); 
+
+        for (let element of texto_cifrado)
+        {
+            let index=abc.indexOf(element); //regresa posicion del elemento
+            if(element != ""){
+                if(index-key <= 0)
+                {
+                    textodescifrado.push(abc[(index-key)+abc.length]);
+                }else{
+                    textodescifrado.push(abc[index-key]);
+                }
+            }else{
+                textodescifrado.push(element);
+            }
+        }
+        console.log("Texto descifrado: " + textodescifrado.join("")); //join convierte array en string
+    </script>
+</body>
+</html>

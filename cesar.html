@@ -1,0 +1,36 @@
+!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Cifrado Cesar </title>
+    </head>
+<body>
+    <script>
+        let abc=["a","b","c","d","e","f","g","h","i","j","k","l","m","m","o","p","q","r","s","t","u","v","w","x","y","z"];
+        let texto_original=prompt("Ingresa un texto en minusculas");
+        let key=parseInt(prompt("Ingresa la llave"));
+        //parseint convierte el 1 en un numero entero ya que normalmente lo toma como caracter
+        let texto_encriptado=[];
+
+        texto_original=texto_original.split(""); //split convierte string a array
+        for (let element of texto_original)
+        {
+            let index=abc.indexOf(element); //regresa posicion del elemento
+            if(element != ""){
+                if(index+key >=abc.length)
+                {
+                    texto_encriptado.push(abc[(index+key)-abc.length]);
+                }else{
+                    texto_encriptado.push(abc[index+key]);
+                }
+
+            }else{
+                texto_encriptado.push(element);
+            }
+        }
+
+    console.log(texto_encriptado.join("")); //join convierte array en string
+    </script>
+</body>
+</html>
